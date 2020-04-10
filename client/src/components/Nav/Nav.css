@@ -1,3 +1,7 @@
 .bg-light {
     background-color: gray!important;
 }
+body {
+    background-image: url("https://i0.wp.com/wptavern.com/wp-content/uploads/2015/02/library.png?fit=1024%2C499&ssl=1");
+    width: 100%;
+}

@@ -1,0 +1,29 @@
+.jumbotron3{
+    background-color: gray;
+    position: relative;
+    bottom: 50px;
+    text-align: center;
+    height: 300px;
+}
+.card-body{
+    height: 200px;
+    background-color: lightgray;
+}
+.card2{
+    position: absolute;
+    left: 140px;
+    top: 75px;
+}
+img{
+    position: relative;
+    right: 450px;
+    bottom: 15px;
+}
+
+/* ----- */
+ul{
+    text-align:left ;
+    list-style-type: none;
+    position: relative;
+    bottom: 5px;
+}
