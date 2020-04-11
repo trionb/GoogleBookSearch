@@ -1,7 +1,28 @@
-import React from "react";
-import "../BookSearch/BookSearch.css"
+import React, { useState } from "react";
+import "../BookSearch/BookSearch.css";
+import API from "../utils/API"; 
 
 function BookSearch () {
+    const [newBook ,setBookSearch] = useState("");
+
+
+    const HandleInputChange =(event) => {
+        setBookSearch(event.target.value);
+        console.log(newBook)
+    }
+
+    const HandleFormSubmit = (event) => {
+        event.preventDefault();
+        console.log(" Book Search button submitted")
+        API.addBooks({
+            title: newBook
+        })
+        
+    }
+
+
+
+
     return (
             <>
             <div className="shadow-lg p-3 mb-5 rounded">
@@ -18,7 +39,9 @@ function BookSearch () {
                             Book
                         </p>
                         <input 
+                            name="searchBook"
                             type="text"
+                             onChange={HandleInputChange}
                              className="form-control" 
                              id="searchBar" 
                              aria-describedby="SearchHelp" 
@@ -27,7 +50,8 @@ function BookSearch () {
                             <button 
                                 className="searchbtn" 
                                 type="submit" 
-                                onChange="HandleInputChange">
+                                onClick={HandleFormSubmit}
+                              >
                                 Search
                             </button>
                         </div>
