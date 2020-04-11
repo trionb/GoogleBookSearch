@@ -2,24 +2,37 @@ import React, { useState, useEffect } from "react";
 import API from "../utils/API"
 import "../Results/Results.css"
 
+
+const HandleFormSubmit = (event) => {
+    event.preventDefault();
+    this.setState({
+        search: event.target.value.toLowerCase()
+  
+      })
+}
+
 function Results () {
-    const [books ,setBooks] = useState([]);
+    const [books,setBooks,setResults] = useState([]);
      
     const loadBooks =() => {
-     API.getBooks()
-       .then(res => {
-           console.log(res.data)
-           setBooks(res.data)
-       })
+    //  API.getBooks()
+    //    .then(res => {
+    //        console.log(res.data)
+    //        setBooks(res.data)
+    //    })
     }
 
     useEffect(()=>{
         loadBooks();
-    }, []);
+        API.Search()
+      .then(res => {
+        console.log(res.data)
+        setResults(res.data)
+      })
+      .catch(err => console.log(err))
+  }, [])
+    
 
-    const HandleFormSubmit = (event) => {
-        event.preventDefault();
-    }
     return (
         <>
             <div className="shadow-lg p-3 mb-5 rounded">
@@ -44,10 +57,10 @@ function Results () {
                                          Search
                                     </button>
                                     <ul>   
-                                        {books.length > 0 && books.map(items => (
+                                        {books.map(items => (
                                           <>
                                             <li
-                                                className="card1">Title:{items.volumeInfo.title}
+                                                className="card1">Title:{items.items[0].volumeInfo.title}
                                             </li>
                                             <li 
                                                 className="card2">Synopsis :
