@@ -32,7 +32,7 @@ function Results () {
       .catch(err => console.log(err))
   }, [])
     
-
+   
     return (
         <>
             <div className="shadow-lg p-3 mb-5 rounded">
@@ -57,10 +57,10 @@ function Results () {
                                          Search
                                     </button>
                                     <ul>   
-                                        {books.map(items => (
+                                        {books.map(bookList => (
                                           <>
                                             <li
-                                                className="card1">Title:{items["0"].volumeInfo.title}
+                                                className="card1">Title:{bookList.items["0"].volumeInfo.title}
                                             </li>
                                             <li 
                                                 className="card2">Synopsis :
