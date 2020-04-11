@@ -3,16 +3,22 @@ import API from "../utils/API"
 import "../Results/Results.css"
 
 
+const HandleFormSearch = (event) => {
+    event.preventDefault("Search Results button clicked");
+    console.log()
+}
 const HandleFormSubmit = (event) => {
     event.preventDefault();
+    console.log("View button clicked")
     this.setState({
         search: event.target.value.toLowerCase()
   
       })
-}
+}                                                                       
+                                            ///***?????////////// */
 
 function Results () {
-    const [books,setBooks,setResults] = useState([]);
+    const [books,setBooks,setResults] = useState("");
      
     const loadBooks =() => {
      API.getBooks()
@@ -30,7 +36,7 @@ function Results () {
         setResults(res.data)
       })
       .catch(err => console.log(err))
-  }, [])
+  },[])
     
    
     return (
@@ -53,14 +59,14 @@ function Results () {
                                     <button 
                                         className="searchbtn" 
                                         type="submit" 
-                                        onClick={HandleFormSubmit}>
+                                        onClick={HandleFormSearch}>
                                          Search
                                     </button>
                                     <ul>   
-                                        {books.map(bookList => (
+                                        {books.length > 0 && books.map(bookList => (
                                           <>
                                             <li
-                                                className="card1">Title:{bookList.items["0"].volumeInfo.title}
+                                                className="card1">Title:{bookList.items[0].volumeInfo.title}
                                             </li>
                                             <li 
                                                 className="card2">Synopsis :
