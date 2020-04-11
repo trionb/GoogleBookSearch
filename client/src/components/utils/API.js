@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASEURL = "https://www.googleapis.com/books/v1/volumes?q=you%20can%20win&maxresults=40";
+const BASEURL = "https://www.googleapis.com/books/v1/volumes?q=40";
 
 
 // Export an object with a "search" method that searches the Giphy API for the passed query

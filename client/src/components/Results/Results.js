@@ -15,11 +15,11 @@ function Results () {
     const [books,setBooks,setResults] = useState([]);
      
     const loadBooks =() => {
-    //  API.getBooks()
-    //    .then(res => {
-    //        console.log(res.data)
-    //        setBooks(res.data)
-    //    })
+     API.getBooks()
+       .then(res => {
+           console.log(res.data)
+           setBooks(res.data)
+       })
     }
 
     useEffect(()=>{
@@ -60,7 +60,7 @@ function Results () {
                                         {books.map(items => (
                                           <>
                                             <li
-                                                className="card1">Title:{items.items[0].volumeInfo.title}
+                                                className="card1">Title:{items["0"].volumeInfo.title}
                                             </li>
                                             <li 
                                                 className="card2">Synopsis :
