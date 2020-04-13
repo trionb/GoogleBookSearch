@@ -18,24 +18,25 @@ const HandleFormSubmit = (event) => {
                                             ///***?????////////// */
 
 function Results () {
-    const [books,setBooks,setResults] = useState("");
+    const [books,setBooks] = useState([]);
      
     const loadBooks =() => {
-     API.getBooks()
+     API.Search()
        .then(res => {
            console.log(res.data)
-           setBooks(res.data)
+           setBooks(res.data.items)
+           console.log(books)
        })
     }
 
     useEffect(()=>{
         loadBooks();
-        API.Search()
-      .then(res => {
-        console.log(res.data)
-        setResults(res.data)
-      })
-      .catch(err => console.log(err))
+    //     API.Search()
+    //   .then(res => {
+    //     console.log(res.data)
+    //     setBooks(res.data)
+    //   })
+    //   .catch(err => console.log(err))
   },[])
     
    
@@ -45,6 +46,7 @@ function Results () {
                 <div className="jumbotron3">
                     <div className="container">
                         <h3 className="display-4">Results</h3>
+                        {books.length > 0 && books.map(bookList => (
                         <div className="row">
                             <div className="col-sm-12">
                                 <div className="card">
@@ -60,28 +62,27 @@ function Results () {
                                         className="searchbtn" 
                                         type="submit" 
                                         onClick={HandleFormSearch}>
-                                         Search
+                                         Saved
                                     </button>
-                                    <ul>   
-                                        {books.length > 0 && books.map(bookList => (
-                                          <>
+                                           <>
+                                    <ul>  
                                             <li
-                                                className="card1">Title:{bookList.items[0].volumeInfo.title}
+                                                className="card1">Title:{bookList.volumeInfo.title}
                                             </li>
                                             <li 
-                                                className="card2">Synopsis :
+                                                className="card2">Synopsis :{bookList.volumeInfo.title}
                                             </li>
                                             <li     
-                                                className="card3">Author :
+                                                className="card3">Author :{bookList.volumeInfo.title}
                                             </li>
-                                            </>
-                                            ))}
                                         </ul>
                                         <a href="#"><img src="https://via.placeholder.com/100"/></a>
+                                        </>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                         ))}
                     </div>
                 </div>
             </div>
