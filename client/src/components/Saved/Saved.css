@@ -24,11 +24,11 @@ img{
     right: 450px;
     bottom: 30px;
 }
+.deletebtn {
+    position: relative;
+    left: 450px;
+    bottom: 5px;
+    border-color: gray;
+}
 
 /* ----- */
-ul{
-    text-align:left ;
-    list-style-type: none;
-    position: relative;
-    bottom: 20px;
-}

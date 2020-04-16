@@ -1,5 +1,16 @@
 import React from "react";
+import BookSearch from "../BookSearch/BookSearch"
 import "../Nav/Nav.css"
+
+
+const HandleSearchSubmit = (event) => {
+    event.preventDefault();
+    console.log(" Nav Search button clicked")
+}
+const HandleSaveSubmit = (event) => {
+    event.preventDefault();
+    console.log(" Nav Save button clivked")
+}
 
 function Nav() {
     return (
@@ -23,13 +34,19 @@ function Nav() {
                          <li 
                                 className="nav-item">
                               <a 
-                                className="nav-link" href="#">Search
+                                className="nav-link" 
+                                href={BookSearch}
+                                onClick={HandleSearchSubmit}
+                                >Search
                              </a>
                         </li>
                         <li 
                             className="nav-item">
                            <a 
-                              className="nav-link" href="#">Saved
+                              className="nav-link" 
+                              href="#"
+                              onClick={HandleSaveSubmit}
+                              >Saved
                            </a>
                         </li>
                     </ul>
