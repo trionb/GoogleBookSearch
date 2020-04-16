@@ -2,19 +2,19 @@ import React from "react";
 import "../Results/Results.css"
 
 
-
 ///***?????////////// */
 
 function Results({books}) {
-    const HandleFormSubmit=()=>{
-
+    const HandleFormSubmit=(event)=>{
+        event.preventDefault();
+        console.log(" View Book button clicked")
 }
 const HandleFormSearch=()=>{
 
 }
- books.map(book=>{
-    console.log(book.volumeInfo.imageLinks.smallThumbnail)
- })
+//  books.map(book=>{
+//     console.log(book.volumeInfo.imageLinks.smallThumbnail)
+//  })
 //  console.log(books[0].volumeInfo.imageLinks)
     return (
         <div className="shadow-lg p-3 mb-5 rounded">
@@ -29,8 +29,9 @@ const HandleFormSearch=()=>{
                                         <button
                                             className="searchbtn"
                                             type="submit"
-                                            href={bookList.volumeInfo.infoLink}
-                                            onClick={HandleFormSubmit}>
+                                            onClick={HandleFormSubmit}
+                                            href={bookList.volumeInfo.previewLink}
+                                            >
                                             View
                                 </button>
                                         {"   "}
